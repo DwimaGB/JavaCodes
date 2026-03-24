@@ -1,0 +1,19 @@
+# Compiled files
+*.class
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# Build folders
+out/
+build/
+target/
+
+# OS files
+.DS_Store
+Thumbs.db
