@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Album {
 
@@ -12,8 +13,43 @@ public class Album {
         songs = new ArrayList<>();
     }
 
-    private boolean addSongs(String title, double duration){
+    public boolean addSong(String title, double duration){
 
+        if(songs.contains(findSong(title))){
+            return false;
+        }
+        songs.add(new Song(title, duration));
+        return true;
+    }
+
+    public boolean addToPlayList(int trackNo, LinkedList<Song> playlist){
+
+        if(trackNo <= 0 || trackNo > songs.size()) return false;
+
+        Song songToAdd = songs.get(trackNo - 1);
+        playlist.add(songToAdd);
+        return true;
+
+    }
+
+    public boolean addToPlayList(String title, LinkedList<Song> playlist){
+
+        Song songToAdd = findSong(title);
+
+        if(songToAdd == null) return false;
+
+        playlist.add(songToAdd);
+        return true;
+    }
+
+    private Song findSong(String title){
+
+        for(Song song : songs){
+            if(song.getTitle().equals(title)){
+                return song;
+            }
+        }
+        return null;
     }
 
 }
