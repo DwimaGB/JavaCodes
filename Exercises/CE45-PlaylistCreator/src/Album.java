@@ -15,9 +15,10 @@ public class Album {
 
     public boolean addSong(String title, double duration){
 
-        if(songs.contains(findSong(title))){
+        if(findSong(title) != null){
             return false;
         }
+
         songs.add(new Song(title, duration));
         return true;
     }
