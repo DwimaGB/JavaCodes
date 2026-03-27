@@ -56,8 +56,8 @@ public class Bank {
         System.out.println("Statement for " + customerName);
 
         int count = 1;
-        for(double t : transactions){ // Autoboxing
-            System.out.printf("Transaction %d: %.2f%n", count++, t);
+        for(double t : transactions){ // Autounboxing
+            System.out.printf("Transaction %d: %.2f %s %n", count++, t, (t < 0)? "Debited" : "Credited");
         }
     }
 }
